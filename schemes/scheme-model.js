@@ -21,10 +21,10 @@ function add(schemeData) {
     return db('schemes').insert(schemeData);
 }
 
-function addStep(stepData) {
+function addStep(stepData, scheme_id) {
     return db('steps')
-    .insert(stepData)
-    .then(ids => ({ id: ids[0] }));
+    .insert(stepData, scheme_id)
+    .then(ids => ({ scheme_id: ids[0] }));
 }
 
 function update(changes,id) {
